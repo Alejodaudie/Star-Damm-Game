@@ -1,11 +1,18 @@
-# Star-Damm-Game
-Star Damm Game
+# Star Damm Game
+
+
 ## Description
+
 Star Damm is a game where the player will try to fill the beer drops inside the bottle (thanks to the movement of the beer bottle), creating the magnificent Estrella Damm beer that we drink every day and that we like so much. Each time you pass to the next levels (fill the bottle beer to the top), the beer drops will go faster. There's no losing condition but the winning condition is: get to the farthest level.
 
+
 ## MVP (DOM - CANVAS)
+
 CANVAS - The MVP version will be the first level of the game: a player (beer bottle) and the enemies (beer drops).
+
+
 ## Backlog
+
 Add score
 Add time
 Add level
@@ -16,6 +23,7 @@ Logo
 Music
 Levels (with differents beer drops speeds)
 Mobile version
+
 
 ## Data structure
 
@@ -53,6 +61,7 @@ Game.prototype.finishGameCallback(){
 }
 ```
 
+
 ### bottle.js
 
 ```
@@ -73,6 +82,7 @@ Bottle.prototype.update()
 Bottle.prototype.draw()
 ```
 
+
 ### drops.js  (enemies)
 
 ```
@@ -91,7 +101,9 @@ Drops.prototype.draw()
 Drops.prototype.isInScreen()
 ```
 
+
 ## States y States Transitions
+
 Definition of the different states and their transition (transition functions)
 
 ```
@@ -113,6 +125,7 @@ Definition of the different states and their transition (transition functions)
   - buildGameOver()
   - addEventListener( if splashScreen, else starGame)
 ```
+
 
 ## Task
 
