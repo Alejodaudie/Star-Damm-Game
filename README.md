@@ -13,16 +13,16 @@ CANVAS - The MVP version will be the first level of the game: a player (beer bot
 
 ## Backlog
 
-Add score
-Add time
-Add level
-Add username
-Storage HighScore Star Damm Players
-Design
-Logo
-Music
-Levels (with differents beer drops speeds)
-Mobile version
+- Add score
+- Add time
+- Add level
+- Add username
+- Storage HighScore Star Damm Players
+- Design
+- Logo
+- Music
+- Levels (with differents beer drops speeds)
+- Mobile version
 
 
 ## Data structure
