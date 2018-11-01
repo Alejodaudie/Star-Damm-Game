@@ -149,7 +149,7 @@ Definition of the different states and their transition (transition functions)
 - Game - clear
 - Game - create drops
 - Drops - create
-- Game - enemies (drops) position
+- Game - drops position (enemies)
 - Drops - check if still in screen
 - Game - collision + remove
 - Game - gameOver
