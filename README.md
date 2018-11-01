@@ -129,30 +129,30 @@ Definition of the different states and their transition (transition functions)
 
 ## Task
 
-Repo/GIT
-Create files
-Main - buildDom
-Main - buildSplash
-Main - addEventListener
-Main - destroySplash
-Game - buildDom
-Game - TimeOut test
-Main - GameOver
-Main - destroy Game
-Main - GameOver RESTART
-Main - removeGameOver
-Game - addEventListener
-Game - loop
-Game - create bottle
-Bottle (player) - create
-Bottle (player) - directions
-Game - clear
-Game - create drops
-Drops - create
-Game - enemies (drops) position
-Drops - check if still in screen
-Game - collision + remove
-Game - gameOver
+- Repo/GIT
+- Create files
+- Main - buildDom
+- Main - buildSplash
+- Main - addEventListener
+- Main - destroySplash
+- Game - buildDom
+- Game - TimeOut test
+- Main - GameOver
+- Main - destroy Game
+- Main - GameOver RESTART
+- Main - removeGameOver
+- Game - addEventListener
+- Game - loop
+- Game - create bottle
+- Bottle (player) - create
+- Bottle (player) - directions
+- Game - clear
+- Game - create drops
+- Drops - create
+- Game - enemies (drops) position
+- Drops - check if still in screen
+- Game - collision + remove
+- Game - gameOver
 
 
 ## Links
