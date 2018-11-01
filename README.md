@@ -163,7 +163,7 @@ Link url
 
 ## Git
 
-URls for the project repo and deploy Link Repo Link Deploy
+URls for the project repo and deploy 
 [Link Repo](https://github.com/Alejodaudie/Star-Damm-Game)
 [Link Deploy]()
 
