@@ -130,7 +130,7 @@ Definition of the different states and their transition (transition functions)
 ## Task
 
 Repo/GIT
-create files
+Create files
 Main - buildDom
 Main - buildSplash
 Main - addEventListener
