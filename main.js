@@ -22,7 +22,7 @@ function main() {
      // -- splash
 
      function buildSplash() {
-        splashScreen = buildDOM(`
+        splashScreen = buildDom(`
           <main>
             <h1>Star Damm</h1>
             <button>Start</button>
@@ -46,9 +46,9 @@ function main() {
       // -- game
 
       function buildGameScreen() {
-        gameScreen = buildDOM(`
-          <main>
-            <p class="lives">3</p>     
+        gameScreen = buildDom(`
+          <main id="game-screen">
+            <p class="lives">3 vidas</p>     
             <canvas width="640px" height="480px"></canvas>   
           </main>
         `);
@@ -60,9 +60,13 @@ function main() {
     
         var game = new Game(canvasElement);
         game.start();
-    
+        
+
         game.onGameOverCallback(destroyGameScreen);
+        
+        /*
         game.onLiveLost(updateLives);
+        */
     
       }
     
@@ -78,7 +82,7 @@ function main() {
         // -- game over 
 
         function buildGameOverScreen() {
-            gameOverScreen = buildDOM(`
+            gameOverScreen = buildDom(`
               <main>
                 <h1>Game Over</h1>
                 <button>Restart</button>
