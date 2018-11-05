@@ -40,3 +40,13 @@ Bottle.prototype.update = function() {
         this.x += this.speed * this.direction;
     }
 }
+
+Bottle.prototype.collidesWithDrop = function(drop) {
+
+    var collidesTop = drop.y <= this.y + this.size;
+    var collidesBottom = drop.y + drop.size >= this.y;
+    var collidesRight = drop.x <= this.x + this.size;
+
+    return collidesRight && collidesBottom && collidesTop;
+    
+}
