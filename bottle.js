@@ -10,7 +10,7 @@ function Bottle(canvasElement) {
     this.x = this.canvasElement.width / 2;
     this.y = this.canvasElement.height;
     this.lives = 5;
-    this.speed = 5;
+    this.speed = 7;
     this.direction = 0;
     this.collisionCanvas = false;
     this.image = new Image();
