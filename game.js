@@ -7,6 +7,7 @@ function Game(canvasElement) {
     this.bottle = new Bottle (this.canvasElement);  
     this.gameIsOver = false;
     this.timeLeft = null;
+    this.level = 1
 }
 
 Game.prototype.start = function() {
@@ -18,11 +19,11 @@ Game.prototype.start = function() {
 
 Game.prototype.startLoop = function() {
 
-    this.drops.push(new Drop(this.canvasElement));
 
+/*
     setTimeout(function(){
         this.finishGame()
-    }.bind(this),15000);
+    }.bind(this),25000);*/
 
     var handleKeyDown = function(event) {  /* PREGUNTAR */
 
@@ -40,20 +41,44 @@ Game.prototype.startLoop = function() {
 
     var loop = function() {
 
-
-        if (Math.random() > 0.97) {
-            this.drops.push(new Drop(this.canvasElement));
+        if(this.level === 1) {
+            if (Math.random() > 0.97) {
+                this.drops.push(new Drop(this.canvasElement, 5));
+            }
         }
+        if(this.level === 2) {
+            if (Math.random() > 0.97) {
+                this.drops.push(new Drop(this.canvasElement, 10));
+            }
+        }
+        if(this.level === 3) {
+            if (Math.random() > 0.97) {
+                this.drops.push(new Drop(this.canvasElement, 15));
+            }
+        }
+        if(this.level === 4) {
+            if (Math.random() > 0.97) {
+                this.drops.push(new Drop(this.canvasElement, 20));
+            }
+        }
+
+   
 
         this.checkAllCollisions();
         this.updateAll();
         this.clearAll();
         this.drawAll();
         
+        if (this.bottle.height === 65) {
+            this.bottle = new Bottle (this.canvasElement);  
+            this.level ++
+        }
 
         if (!this.gameIsOver) {
             requestAnimationFrame(loop);
+
         }
+
 
     }.bind(this);
 
@@ -90,12 +115,12 @@ Game.prototype.startLoop = function() {
    Game.prototype.checkAllCollisions = function() {
        this.drops.forEach(function(drop, index) {
            if (this.bottle.collidesWithDrop(drop)) {
-               this.bottle.lives--;
-               this.lostLive(this.bottle.lives);
+               //this.bottle.lives--;
+               //this.lostLive(this.bottle.lives);
                this.drops.splice(index, 1);
+               this.bottle.fill();
 
                if (!this.bottle.lives) {
-                   this.gameIsOver = true;
                    this.finishGame();
                }
            }

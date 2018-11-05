@@ -11,7 +11,8 @@ html {
   body {
     margin: 0;
     padding: 0;
-   /* background-image: url("4ef69-IMG_2591b.jpg"); */
+   /* background-image: url('./Imagenes/background-2.jpg');
+    background-size: cover; */
   }
 
   canvas {
@@ -20,6 +21,11 @@ html {
       margin: 0 auto;
   }
   .lives{
+    width: 640px;
+    margin: 0 auto;
+  }
+
+  .time{
     width: 640px;
     margin: 0 auto;
   }
