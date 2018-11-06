@@ -6,21 +6,21 @@ function Bottle(canvasElement) {
     this.bottleWidth = 37;
     this.bottleHeight = 100;
     this.width = 30;
-    this.height = 30;
+    this.height = 5;
     this.x = this.canvasElement.width / 2;
     this.y = this.canvasElement.height;
     this.lives = 5;
-    this.speed = 7;
+    this.speed = 12;
     this.direction = 0;
     this.collisionCanvas = false;
     this.image = new Image();
-    this.image.src = './Imagenes/bottle-ok.png'
+    this.image.src = './Imagenes/bottle/bottle-ok.png'
     
 }
 
 Bottle.prototype.draw = function() {
 
-this.ctx.fillStyle = 'yellow';
+this.ctx.fillStyle = '#fddb25';
 this.ctx.fillRect(this.x - 15, this.y - this.height, this.width, this.height);
 this.ctx.drawImage(this.image, this.x - this.bottleWidth / 2, this.y - this.bottleHeight, this.bottleWidth, this.bottleHeight)
 

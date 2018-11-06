@@ -11,8 +11,17 @@ html {
   body {
     margin: 0;
     padding: 0;
-   /* background-image: url('./Imagenes/background-2.jpg');
-    background-size: cover; */
+   /* background-image: url('./Imagenes/background/240_F_142009802_OvSdntG2pNiO5q3ii1wNjrCZ81sgpBB4.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;*/
+  }
+
+ .headerGame{
+    /*background-image: url('./Imagenes/grifo/grifo-7.png');
+    background-size: 1100px 778px, cover;
+    background-repeat: no-repeat;
+    width: 1100px;
+    margin: 0 auto;*/
   }
 
   canvas {

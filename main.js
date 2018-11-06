@@ -64,10 +64,11 @@ function main() {
 
       function buildGameScreen() {
         gameScreen = buildDom(`
+          <header class="headerGame"><header>
           <main id="game-screen">
             <p class="time">Time: </p>
             <p class="lives">5 vidas</p>     
-            <canvas width="640px" height="480px"></canvas>   
+            <canvas width="640px" height="680px"></canvas>   
           </main>
         `);
     

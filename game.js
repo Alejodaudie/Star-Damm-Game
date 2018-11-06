@@ -42,7 +42,7 @@ Game.prototype.startLoop = function() {
     var loop = function() {
 
         if(this.level === 1) {
-            if (Math.random() > 0.97) {
+            if (Math.random() > 0.98) {
                 this.drops.push(new Drop(this.canvasElement, 5));
             }
         }
@@ -60,6 +60,12 @@ Game.prototype.startLoop = function() {
             if (Math.random() > 0.97) {
                 this.drops.push(new Drop(this.canvasElement, 20));
             }
+        }
+        if(this.level === 5) {
+            if (Math.random() > 0.97) {
+                this.drops.push(new Drop(this.canvasElement, 25));
+            }
+            this.finishGame();
         }
 
    
