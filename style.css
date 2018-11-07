@@ -28,7 +28,11 @@ html {
       border: 1px solid black;
       width: 640px;
       margin: 0 auto;
+     /* background-image: url('./Imagenes/fabrica/fabrica-1.jpg');
+      background-size: 940px 680px ,cover; 
+      background-position: 0;*/
   }
+  
   .lives{
     width: 640px;
     margin: 0 auto;

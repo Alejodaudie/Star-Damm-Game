@@ -7,7 +7,8 @@ function Game(canvasElement) {
     this.bottle = new Bottle (this.canvasElement);  
     this.gameIsOver = false;
     this.timeLeft = null;
-    this.level = 1
+    this.level = 1;
+    this.message = '';
 }
 
 Game.prototype.start = function() {
@@ -15,15 +16,28 @@ Game.prototype.start = function() {
     this.ctx = this.canvasElement.getContext('2d');
 
     this.startLoop();
+
 }
+
+
+// Digo que cuando pase al siguiente nivel, me aparezca un mensaje en medio.
+
+Game.prototype.mensajeNivel = function() {
+    this.message = new Message (this.canvasElement, 'Level ' + this.level);
+    if(this.level > 5) {
+        this.message = null;
+    }
+    
+    setTimeout(function() {
+        this.message = '';
+    }.bind(this), 2000)
+};
+
 
 Game.prototype.startLoop = function() {
 
 
-/*
-    setTimeout(function(){
-        this.finishGame()
-    }.bind(this),25000);*/
+
 
     var handleKeyDown = function(event) {  /* PREGUNTAR */
 
@@ -35,11 +49,48 @@ Game.prototype.startLoop = function() {
             
         }
         this.bottle.x += this.bottle.speed * this.bottle.direction;
-    }.bind(this)
+    }.bind(this);
 
     document.addEventListener('keydown', handleKeyDown);  /* PREGUNTAR */
 
+    
+
+    // Digo que para cada nivel hay 30 segundos para pasar al siguiente nivel, si no Game Over.
+
+    var timeOutId = setTimeout(function(){
+        this.finishGame()
+    }.bind(this),30000)
+
+    if(this.level === 2) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+    if(this.level === 3) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+    if(this.level === 4) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+    if(this.level === 5) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+
+
+
     var loop = function() {
+
+        // Aumento de velocidad gotas (drops), cada next level.
 
         if(this.level === 1) {
             if (Math.random() > 0.98) {
@@ -65,20 +116,28 @@ Game.prototype.startLoop = function() {
             if (Math.random() > 0.97) {
                 this.drops.push(new Drop(this.canvasElement, 25));
             }
+        }
+        if(this.level > 5) {
             this.finishGame();
         }
 
-   
+
+        // Digo que cuando la botella se llene hasta la altura 65, paso al siguiente nivel.
+
+        if (this.bottle.height === 65) {
+                this.bottle = new Bottle (this.canvasElement);  
+                this.level ++;
+                this.mensajeNivel();
+            }
+        
+            
 
         this.checkAllCollisions();
         this.updateAll();
         this.clearAll();
         this.drawAll();
         
-        if (this.bottle.height === 65) {
-            this.bottle = new Bottle (this.canvasElement);  
-            this.level ++
-        }
+        
 
         if (!this.gameIsOver) {
             requestAnimationFrame(loop);
@@ -89,7 +148,7 @@ Game.prototype.startLoop = function() {
     }.bind(this);
 
     loop();
-}
+};
 
 
 /* Tengo que tener hasta aquí para que me funcione las 3 screens (Splash Screen/Game Screen/Game Over Screen), y a partir de ahora, ya empiezo 
@@ -116,6 +175,9 @@ Game.prototype.startLoop = function() {
        this.drops.forEach(function(drop) {
            drop.draw();
        })
+       if (this.message) {
+           this.message.draw();
+       } 
    }
   
    Game.prototype.checkAllCollisions = function() {
