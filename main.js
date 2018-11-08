@@ -16,33 +16,40 @@ function main() {
   
     var startButton;
     var restartButton;
-  
-    var livesElement;
+    var timerElement;
+
+
 
      // -- splash
 
      function buildSplash() {
         splashScreen = buildDom(`
-          <main class = "cointainer">
-          <div class = "intro">
-            <h1>Star Damm Game</h1>
+          <main class = "main-Splash">
+          <section class="splash container">
+            <h1 class = "h1-Splash"></h1>
             <h2>WELCOME</h2>
             <h3>Please, enter your date of birth</h3>
-            <div class = "input">
-            <label> Age : </label>
-            <input type = "text" placeholder = '+ 18'>
+            <div class="input">
+            <label class ="Age"> Age : </label>
+            <input type="number" placeholder = '+ 18'>
             </div>
             <div class = "buttons">
-                <button class = "button">OK</button>
+                <button class="button">
+                OK
+                </button>
             </div>
             <h4>To play the game you must be over 18 years old</h4>
-            <div><p>By entering this site game, you are agreeing to our Terms & Conditions found here, Privacy Policy found here and By continuing to browse 
+            <footer>
+              <p>By entering this site game, you are agreeing to our Terms & Conditions found here, Privacy Policy found here and By continuing to browse 
                 this site you are agreeing to accept our use of cookies. Read our Privacy Policy to find out more. Read the Star Damm game responsibility 
                 statement here. Star Damm game endorses responsible and moderate drinking. For this reason, we would like to recommend the following reading: Beer, 
                 beer and beer, we love Star Damm game . STAR® Damm Game of Spain. Star game, Alejo Daudí Beer game country of Barcelona & Logo, ENJOY RESPONSIBLY and 
                 Star game Designs are trademarks owned by The Alejo Star Damm Company SD. ©2000-2014 The Star Damm Company SD. All rights reserved. Imported in the BCN 
-                by Star D Beers Co. Barcelona, BCN. Enjoy responsibly.</p></div>
-            </div> 
+                by Star D Beers Co. Barcelona, BCN. Enjoy responsibly.</p>
+
+              <p>©Copyright 2050 by Alejo Daudí. All rights reversed.</p>
+            </footer>
+            </section>
           </main>
         `);
     
@@ -64,10 +71,11 @@ function main() {
 
       function buildGameScreen() {
         gameScreen = buildDom(`
-          <header class="headerGame"><header>
-          <main id="game-screen">
-            <p class="time">Time: </p>
-            <p class="lives">5 vidas</p>     
+          <main class = "main-Game">
+            <header class="headerGame">
+              <img src="./Imagenes/grifo/grifo-7.png">
+            </header>
+            <p class="time">Time: <span class="timer"</span></p>   
             <canvas width="640px" height="680px"></canvas>   
           </main>
         `);
@@ -75,20 +83,22 @@ function main() {
         document.body.prepend(gameScreen);
     
         var canvasElement = document.querySelector('canvas');
-        livesElement = document.querySelector('p.lives');
+      
     
         var game = new Game(canvasElement);
         game.start();
         
+        game.onTimeUpdate(updateTime);
+
         game.onGameOverCallback(destroyGameScreen);
-        game.onLiveLost(updateLives);
     
       }
     
-      function updateLives(lives) {
-        livesElement.innerText = lives;
+      function updateTime(timeLeft) {
+        timerElement = document.querySelector('.timer');
+        timerElement.innerText = timeLeft;
       }
-    
+
       function destroyGameScreen() {
         gameScreen.remove();
         buildGameOverScreen();
@@ -98,13 +108,13 @@ function main() {
 
         function buildGameOverScreen() {
             gameOverScreen = buildDom(`
-              <main class = "container">
-                <div class = "game-over">
-                  <h1>Game Over</h1>
-                  <p class = "message"><span class = 'username'></span> Score : <span class = 'score'></span></p>
-                  <div class = "buttons">
-                  <div class = "restart-buttons">
-                  <button class = "button">Play Again</button>
+              <main class="main-GameOver">
+                <div class="game-over">
+                  <h1 class="h1-GameOver">Game Over</h1>
+                  <p class="message"><span class = 'username'></span> Score : <span class = 'score'></span></p>
+                  <div class="buttons">
+                  <div class="restart-buttons">
+                  <button class="button">Play Again</button>
                   </div>
                   </div>
                 </div>
@@ -113,7 +123,7 @@ function main() {
         
             document.body.prepend(gameOverScreen);
         
-            restartButton = document.querySelector('button');
+            restartButton = document.querySelector('.button');
         
             restartButton.addEventListener('click', destroyGameOverScreen)
         

@@ -9,7 +9,7 @@ function Game(canvasElement) {
     this.timeLeft = 30;
     this.level = 1;
     this.message = '';
-    this.timerSet = 1;
+    this.timerSet = false;
 }
 
 Game.prototype.start = function() {
@@ -39,7 +39,7 @@ Game.prototype.mensajeNivel = function() {
 Game.prototype.startLoop = function() {
 
 
-    this.startTimer();
+    //this.startTimer();
 
 
     var handleKeyDown = function(event) {  /* PREGUNTAR */
@@ -55,7 +55,42 @@ Game.prototype.startLoop = function() {
     }.bind(this);
 
     document.addEventListener('keydown', handleKeyDown);  /* PREGUNTAR */
+
     
+
+    // Digo que para cada nivel hay 30 segundos para pasar al siguiente nivel, si no Game Over.
+    
+    /*var timeOutId = setTimeout(function(){
+        this.finishGame()
+    }.bind(this),5000) */
+
+   if(this.level === 2) {
+       console.log('hola');
+    clearTimeOut(timeOutId);
+    timeOutId = setTimeout(function(){
+        this.finishGame()
+    }.bind(this),10000)
+    }
+    if(this.level === 3) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+    if(this.level === 4) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+    if(this.level === 5) {
+        clearTimeOut(timeOutId);
+        timeOutId = setTimeout(function(){
+            this.finishGame()
+        }.bind(this),10000)
+    }
+    
+
     var loop = function() {
 
         // Aumento de velocidad gotas (drops), cada next level.
@@ -69,39 +104,25 @@ Game.prototype.startLoop = function() {
             if (Math.random() > 0.97) {
                 this.drops.push(new Drop(this.canvasElement, 10));
             }
-            if (this.timerSet === 2) {
-                console.log("level 2");
-                this.timeLeft = 10; 
+            if (!this.timerSet) {
+                this.timeLeft = 10;
                 this.startTimer();
             }
             
         }
         if(this.level === 3) {
-
             if (Math.random() > 0.97) {
                 this.drops.push(new Drop(this.canvasElement, 15));
-            }
-            if (this.timerSet === 3) {
-                this.timeLeft = 10;
-                this.startTimer();
             }
         }
         if(this.level === 4) {
             if (Math.random() > 0.97) {
                 this.drops.push(new Drop(this.canvasElement, 20));
             }
-            if (this.timerSet === 4) {
-                this.timeLeft = 15;
-                this.startTimer();
-            }
         }
         if(this.level === 5) {
             if (Math.random() > 0.97) {
                 this.drops.push(new Drop(this.canvasElement, 25));
-            }
-            if (this.timerSet === 5) {
-                this.timeLeft = 10;
-                this.startTimer();
             }
         }
         if(this.level > 5) {
@@ -115,7 +136,6 @@ Game.prototype.startLoop = function() {
                 this.bottle = new Bottle (this.canvasElement);  
                 this.level ++;
                 this.mensajeNivel();
-                clearInterval(this.intervalId)
             }
         
             
@@ -126,14 +146,11 @@ Game.prototype.startLoop = function() {
         this.drawAll();
         
         
-        if(this.timeLeft < 0){
-            this.finishGame();
-        }
 
         if (!this.gameIsOver) {
             requestAnimationFrame(loop);
-        }
 
+        }
 
 
     }.bind(this);
@@ -145,11 +162,15 @@ Game.prototype.startLoop = function() {
 // Timeleft screen
 
 Game.prototype.startTimer = function() {
-    this.timerSet += 1;
-    this.intervalId = setInterval(function(){
+    this.timerSet = true;
+    var intervalId = setInterval(function(){
         this.updateTimeElement(this.timeLeft);
         this.timeLeft--;
-    }.bind(this), 1000);
+        if(this.timeLeft < 0){
+        clearInterval(intervalId);
+        this.finishGame();
+        }
+    }.bind(this), 1000)
 }
 
 
@@ -205,9 +226,6 @@ Game.prototype.startTimer = function() {
    }
 
    Game.prototype.finishGame = function() {
-    debugger
-    clearInterval(this.intervalId);
-
     this.gameIsOver = true;   
     this.gameOverCallback();
    }
