@@ -6,11 +6,15 @@ function Game(canvasElement) {
     this.canvasElement = canvasElement;  
     this.bottle = new Bottle (this.canvasElement);  
     this.gameIsOver = false;
-    this.timeLeft = 30;
+    this.timeLeft = 40;
     this.level = 1;
     this.message = '';
     this.timerSet = 1;
+    this.backMusic = document.createElement('audio');
+    this.backMusic.src = '';
 }
+
+// this.backMusic.play();
 
 Game.prototype.start = function() {
 
@@ -205,7 +209,6 @@ Game.prototype.startTimer = function() {
    }
 
    Game.prototype.finishGame = function() {
-    debugger
     clearInterval(this.intervalId);
 
     this.gameIsOver = true;   

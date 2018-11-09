@@ -18,9 +18,9 @@ html {
     text-align: center;
     color: white;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background: #fcf3ec;
-    background-image: url('./AlejoGImp/logo-Star-Damm-arriba.png');
+    background-image: url('./AlejoGImp/estrella+fondo.png');
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -56,16 +56,16 @@ html {
     padding: 0;
   }
 
-  .h1-Splash {
-    margin-bottom: 250px;
-  }
-
   h2 {
     color: white;
     font-weight: normal;
     font-size: 48px;
     font-family: Arial;
     margin-bottom: 20px;
+    font-family: 'Black Han Sans', sans-serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:black;
+    margin-top: 2%;
   }
 
   h3 {
@@ -74,6 +74,9 @@ html {
     font-size: 23px;
     font-family: Arial;
     margin-bottom: 20px;
+    font-family: 'Belgrano', serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:black;
   }
 
   .Age {
@@ -82,6 +85,9 @@ html {
     font-size: 20px;
     font-family: Arial;
     margin-bottom: 20px;
+    font-family: 'Black Han Sans', sans-serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:black;
   }
 
   h4 {
@@ -96,6 +102,9 @@ html {
     font-family: Arial;
     text-transform: uppercase;
     margin-bottom: 150px;
+    font-family: 'Black Han Sans', sans-serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:black;
   }
 
   .message {
@@ -122,15 +131,17 @@ html {
 
   .headerGame img {
     position: absolute;
-    top: 9px;
-    left:400px;
+    top: -11px;
+    left: 400px;
+    height: -webkit-fill-available;
+    width: fit-content;
   }
 
 
   canvas {
       border: 1px solid white;
       width: 640px;
-      margin: 0 auto;
+      margin: 7% auto 0 auto;
      /* background-image: url('./Imagenes/fabrica/fabrica-1.jpg');
       background-size: 940px 680px ,cover; 
       background-position: 0;*/
@@ -141,6 +152,7 @@ html {
   .time{
     width: 640px;
     margin: 0 auto;
+    left: 40px;
   }
 
   #game-screen {
@@ -178,5 +190,9 @@ html {
 }
 
 .splash {
-  padding-top: 80px;
+  padding-top: 2%;
+}
+
+.splash-div  {
+  margin-top: 5%;
 }

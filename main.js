@@ -26,19 +26,22 @@ function main() {
         splashScreen = buildDom(`
           <main class = "main-Splash">
           <section class="splash container">
+            <div><img  src='./AlejoGImp/letraStarDamm.png' alt='damm'></div>
             <h1 class = "h1-Splash"></h1>
-            <h2>WELCOME</h2>
-            <h3>Please, enter your date of birth</h3>
-            <div class="input">
-            <label class ="Age"> Age : </label>
-            <input type="number" placeholder = '+ 18'>
+            <div class="splash-div">
+              <h2>WELCOME</h2>
+              <h3>Please, enter your date of birth</h3>
+              <div class="input">
+              <label class ="Age"> Age : </label>
+              <input type="number" placeholder = '+ 18'>
+              </div>
+              <div class = "buttons">
+                  <button class="button">
+                  OK
+                  </button>
+              </div>
+              <h4>To play the game you must be over 18 years old</h4>
             </div>
-            <div class = "buttons">
-                <button class="button">
-                OK
-                </button>
-            </div>
-            <h4>To play the game you must be over 18 years old</h4>
             <footer>
               <p>By entering this site game, you are agreeing to our Terms & Conditions found here, Privacy Policy found here and By continuing to browse 
                 this site you are agreeing to accept our use of cookies. Read our Privacy Policy to find out more. Read the Star Damm game responsibility 
@@ -75,7 +78,7 @@ function main() {
             <header class="headerGame">
               <img src="./Imagenes/grifo/grifo-7.png">
             </header>
-            <p class="time">Time: <span class="timer"</span></p>   
+            <p class="time"><span class="timer">Time: </span></p>   
             <canvas width="640px" height="680px"></canvas>   
           </main>
         `);
