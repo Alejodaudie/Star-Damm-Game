@@ -12,7 +12,10 @@ html {
   margin: 0;
   padding: 0;
   }
-
+  
+  ::-webkit-scrollbar { 
+    display: none; 
+}
 
   .main-Splash {
     text-align: center;
@@ -29,13 +32,15 @@ html {
   .main-Game {
     text-align: center;
     color: white;
-    align-items: center;
     height: 100vh;
     background: #fcf3ec;
     background-image: url('./AlejoGImp/backgroundAlejo.png');
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .main-GameOver {
@@ -99,60 +104,69 @@ html {
     color: white;
     font-weight: normal;
     font-size: 70px;
-    font-family: Arial;
     text-transform: uppercase;
-    margin-bottom: 150px;
+    padding-top: 57px;
+    margin-bottom: 75px;
     font-family: 'Black Han Sans', sans-serif;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color:black;
+  }
+
+  .level {
+    color: white;
+    font-weight: normal;
+    font-size: 23px;
+    margin-bottom: 20px;
+    font-family: 'Belgrano', serif;
+    font-weight: 700;
   }
 
   .message {
     color: white;
     font-weight: normal;
     font-size: 30px;
-    font-family: Arial;
+    font-family: 'Belgrano', serif;
   }
-
-  
 
   .container {
     margin: 0 20px;
   }
 
-
-
- .headerGame{
-    background-size: 1100px 778px, cover;
-    background-repeat: no-repeat;
-    width: 100%;
+  .game-wrapper{
+    background: url('Imagenes/grifo/grifo-7.png') no-repeat;
+    background-size: 100%;
+    width: 940px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 30px 0 0 30px; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-position-y: 171px;
   }
-
-  .headerGame img {
-    position: absolute;
-    top: -11px;
-    left: 400px;
-    height: -webkit-fill-available;
-    width: fit-content;
-  }
-
 
   canvas {
-      border: 1px solid white;
+      border-bottom: 1px solid white;
       width: 640px;
       margin: 7% auto 0 auto;
+      max-width: 100%;
      /* background-image: url('./Imagenes/fabrica/fabrica-1.jpg');
       background-size: 940px 680px ,cover; 
       background-position: 0;*/
   }
   
-
-
   .time{
-    width: 640px;
-    margin: 0 auto;
-    left: 40px;
+    border: 4px solid #226fbe;
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 35px;
+    color: blue;
+    background: yellow;
+    padding: 25px 40px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
   }
 
   #game-screen {
@@ -161,7 +175,6 @@ html {
       flex-direction: column;
       height: 100vh;
   }
-
 
   /* button hover */
   
@@ -195,4 +208,19 @@ html {
 
 .splash-div  {
   margin-top: 5%;
+}
+
+@media (min-width: 1200px) {
+  .time{
+    position: absolute;
+    top: -42px;
+    right: -180px;
+  }
+  .game-wrapper{
+    background-position-y: 0px;
+  }
+}
+
+@media (max-width: 1500px) {
+ 
 }

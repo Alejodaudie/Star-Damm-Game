@@ -6,15 +6,13 @@ function Game(canvasElement) {
     this.canvasElement = canvasElement;  
     this.bottle = new Bottle (this.canvasElement);  
     this.gameIsOver = false;
-    this.timeLeft = 40;
+    this.timeLeft = 30;
     this.level = 1;
     this.message = '';
     this.timerSet = 1;
-    this.backMusic = document.createElement('audio');
-    this.backMusic.src = '';
 }
 
-// this.backMusic.play();
+
 
 Game.prototype.start = function() {
 
@@ -42,10 +40,7 @@ Game.prototype.mensajeNivel = function() {
 
 Game.prototype.startLoop = function() {
 
-
     this.startTimer();
-
-
     var handleKeyDown = function(event) {  /* PREGUNTAR */
 
         if  (event.key === 'ArrowLeft') {
@@ -53,7 +48,6 @@ Game.prototype.startLoop = function() {
             
         } else if (event.key === 'ArrowRight') {
             this.bottle.setDirection(1);
-            
         }
         this.bottle.x += this.bottle.speed * this.bottle.direction;
     }.bind(this);
@@ -209,8 +203,8 @@ Game.prototype.startTimer = function() {
    }
 
    Game.prototype.finishGame = function() {
+    localStorage.setItem('level', this.level);
     clearInterval(this.intervalId);
-
     this.gameIsOver = true;   
     this.gameOverCallback();
    }

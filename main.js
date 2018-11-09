@@ -17,6 +17,19 @@ function main() {
     var startButton;
     var restartButton;
     var timerElement;
+    var levelElement;
+
+    var backMusic = document.createElement('audio');
+    backMusic.src = './Music/applejack-cancion-del-anuncio-de-estrella-damm-2010.mp3';
+
+    function playBackMusic() {
+      backMusic.play();
+    }
+
+    function stopBackMusic() {
+      backMusic.pause();
+      backMusic.currentTime = 0.0;
+    }
 
 
 
@@ -74,16 +87,17 @@ function main() {
 
       function buildGameScreen() {
         gameScreen = buildDom(`
-          <main class = "main-Game">
-            <header class="headerGame">
-              <img src="./Imagenes/grifo/grifo-7.png">
-            </header>
-            <p class="time"><span class="timer">Time: </span></p>   
-            <canvas width="640px" height="680px"></canvas>   
+          <main class="main-Game">
+            <div class="game-wrapper">
+              <p class="time">Time: <span class="timer">30</span></p>   
+              <canvas width="840px" height="780px"></canvas> 
+            </div>
           </main>
         `);
     
         document.body.prepend(gameScreen);
+
+        playBackMusic();
     
         var canvasElement = document.querySelector('canvas');
       
@@ -103,6 +117,7 @@ function main() {
       }
 
       function destroyGameScreen() {
+        stopBackMusic();
         gameScreen.remove();
         buildGameOverScreen();
       }
@@ -114,18 +129,20 @@ function main() {
               <main class="main-GameOver">
                 <div class="game-over">
                   <h1 class="h1-GameOver">Game Over</h1>
-                  <p class="message"><span class = 'username'></span> Score : <span class = 'score'></span></p>
+                  <p class="message"><span class='username'></span> Level: <span class='level'></span></p>
                   <div class="buttons">
-                  <div class="restart-buttons">
-                  <button class="button">Play Again</button>
-                  </div>
+                    <div class="restart-buttons">
+                      <button class="button">Play Again</button>
+                    </div>
                   </div>
                 </div>
               </main>  
             `);
         
             document.body.prepend(gameOverScreen);
-        
+            levelElement = document.querySelector('.level');
+            var level = localStorage.getItem('level');
+            levelElement.innerText = level;
             restartButton = document.querySelector('.button');
         
             restartButton.addEventListener('click', destroyGameOverScreen)
