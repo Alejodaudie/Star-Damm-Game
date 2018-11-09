@@ -69,7 +69,7 @@ Game.prototype.startLoop = function() {
             }
             if (this.timerSet === 2) {
                 console.log("level 2");
-                this.timeLeft = 10; 
+                this.timeLeft = 25; 
                 this.startTimer();
             }
             
@@ -80,7 +80,7 @@ Game.prototype.startLoop = function() {
                 this.drops.push(new Drop(this.canvasElement, 15));
             }
             if (this.timerSet === 3) {
-                this.timeLeft = 10;
+                this.timeLeft = 20;
                 this.startTimer();
             }
         }

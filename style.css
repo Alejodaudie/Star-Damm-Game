@@ -84,6 +84,19 @@ html {
     -webkit-text-stroke-color:black;
   }
 
+
+  h4 {
+      margin-bottom: 80px;
+    }
+
+    #Age {
+      color: black;
+    }
+
+  .p-Copyright {
+    margin-bottom: 70px;
+  }
+
   .Age {
     color: white;
     font-weight: normal;
@@ -95,9 +108,7 @@ html {
     -webkit-text-stroke-color:black;
   }
 
-  h4 {
-      margin-bottom: 150px;
-    }
+ 
 
     
   .h1-GameOver {

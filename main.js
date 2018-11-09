@@ -18,6 +18,9 @@ function main() {
     var restartButton;
     var timerElement;
     var levelElement;
+    var inputAge;
+    var age;
+    var p;
 
     var backMusic = document.createElement('audio');
     backMusic.src = './Music/applejack-cancion-del-anuncio-de-estrella-damm-2010.mp3';
@@ -46,8 +49,9 @@ function main() {
               <h3>Please, enter your date of birth</h3>
               <div class="input">
               <label class ="Age"> Age : </label>
-              <input type="number" placeholder = '+ 18'>
+              <input type="number" placeholder = '+ 18' class="input-age">
               </div>
+              <p id="Age"></p>
               <div class = "buttons">
                   <button class="button">
                   OK
@@ -63,7 +67,7 @@ function main() {
                 Star game Designs are trademarks owned by The Alejo Star Damm Company SD. ©2000-2014 The Star Damm Company SD. All rights reserved. Imported in the BCN 
                 by Star D Beers Co. Barcelona, BCN. Enjoy responsibly.</p>
 
-              <p>©Copyright 2050 by Alejo Daudí. All rights reversed.</p>
+              <p class="p-Copyright">©Copyright 2050 by Alejo Daudí. All rights reversed.</p>
             </footer>
             </section>
           </main>
@@ -72,15 +76,27 @@ function main() {
         document.body.prepend(splashScreen);
     
         startButton = document.querySelector('button');
+        inputAge = document.querySelector('.input-age');
+        p = document.querySelector('#Age');
     
         startButton.addEventListener('click', destroySplash);
       }
     
       function destroySplash() {
-        splashScreen.remove();
-        startButton.removeEventListener('click', destroySplash);
-    
-        buildGameScreen();
+        age = inputAge.value
+        if(age >= 18) {
+          splashScreen.remove();
+          startButton.removeEventListener('click', destroySplash);
+      
+          buildGameScreen();
+        } else {
+          if(p.innerText.length) {
+            p.innerText = '';
+          }
+          const div = document.querySelector('.input')
+          p.innerText = 'Little boy, You are underage';
+          div.appendChild(p)
+        }
       }
 
       // -- game
