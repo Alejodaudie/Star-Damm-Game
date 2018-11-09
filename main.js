@@ -60,7 +60,7 @@ function main() {
               <h4>To play the game you must be over 18 years old</h4>
             </div>
             <footer>
-              <p>By entering this site game, you are agreeing to our Terms & Conditions found here, Privacy Policy found here and By continuing to browse 
+              <p class="agreement">By entering this site game, you are agreeing to our Terms & Conditions found here, Privacy Policy found here and By continuing to browse 
                 this site you are agreeing to accept our use of cookies. Read our Privacy Policy to find out more. Read the Star Damm game responsibility 
                 statement here. Star Damm game endorses responsible and moderate drinking. For this reason, we would like to recommend the following reading: Beer, 
                 beer and beer, we love Star Damm game . STAR® Damm Game of Spain. Star game, Alejo Daudí Beer game country of Barcelona & Logo, ENJOY RESPONSIBLY and 

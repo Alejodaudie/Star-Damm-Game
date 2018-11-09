@@ -86,17 +86,20 @@ html {
 
 
   h4 {
-      margin-bottom: 80px;
+      margin-bottom: 50px;
     }
 
     #Age {
-      color: black;
+      color: white;
     }
 
   .p-Copyright {
     margin-bottom: 70px;
   }
 
+  .agreement {
+    font-size: 12px;
+  }
   .Age {
     color: white;
     font-weight: normal;
